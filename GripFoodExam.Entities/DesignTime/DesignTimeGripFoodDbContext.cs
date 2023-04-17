@@ -14,6 +14,7 @@ namespace GripFoodExam.Entities.DesignTime
         {
             var optionsBuilder = new DbContextOptionsBuilder<GripFoodDbContext>();
             optionsBuilder.UseSqlite("Data Source=local.db");
+            optionsBuilder.UseOpenIddict();
 
 
             var db = new GripFoodDbContext(optionsBuilder.Options);

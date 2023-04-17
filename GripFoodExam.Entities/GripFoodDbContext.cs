@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace GripFoodExam.Entities
 {
-    public class GripFoodDbContext : DbContext
+    public class GripFoodDbContext : DbContext, IDataProtectionKeyContext
     {
         public GripFoodDbContext(DbContextOptions<GripFoodDbContext> options) : base(options) { }
 
@@ -13,6 +14,6 @@ namespace GripFoodExam.Entities
         public DbSet<FoodItemGridItem> FoodItems => Set<FoodItemGridItem>();
         public DbSet<Cart> Carts => Set<Cart>();
         public DbSet<CartDetail> CartDetails => Set<CartDetail>();
-
+        public DbSet<DataProtectionKey> DataProtectionKeys => Set<DataProtectionKey>();
     }
 }
